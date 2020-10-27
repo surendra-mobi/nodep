@@ -89,7 +89,7 @@ export const fetchRentalById = (rentalId) => {
   return function(dispatch) {
     dispatch(fetchRentalByIdInit());
 
-    axios.get(`/api/v1/rentals/${rentalId}`)
+    axios.get(`/nodep/api/v1/rentals/${rentalId}`)
       .then(res => res.data )
       .then(rental => dispatch(fetchRentalByIdSuccess(rental))
     );

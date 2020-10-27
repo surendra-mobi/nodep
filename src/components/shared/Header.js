@@ -53,7 +53,7 @@ class Header extends React.Component {
     return (
       <nav className='navbar navbar-dark navbar-expand-lg'>
         <div className='container'>
-          <Link className='navbar-brand' to='/rentals'>BookWithMe
+          <Link className='navbar-brand' to='/nodep/rentals'>BookWithMe
             <img src={process.env.PUBLIC_URL + '/img/react-logo.svg'} alt=""/>
           </Link>
           <RentalSearchInput />
