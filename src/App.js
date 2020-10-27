@@ -50,7 +50,7 @@ class App extends Component {
             <Header logout={this.logout}/>
             <div className='container'>
               <Switch>
-                <Route exact path='/nodep/' render={() =>  <Redirect to='/rentals' /> }/>
+                <Route exact path='/nodep/' render={() =>  <Redirect to='/nodep/rentals' /> }/>
                 <Route exact path='/nodep/rentals' component={RentalListing} />
                 <Route exact path='/nodep/rentals/:city/homes' component={RentalSearchListing} />
                 <ProtectedRoute exact path='/nodep/rentals/manage' component={RentalManage} />
