@@ -50,16 +50,16 @@ class App extends Component {
             <Header logout={this.logout}/>
             <div className='container'>
               <Switch>
-                <Route exact path='/nodep/' render={() =>  <Redirect to='/rentals' /> }/>
-                <Route exact path='/nodep/rentals' component={RentalListing} />
-                <Route exact path='/nodep/rentals/:city/homes' component={RentalSearchListing} />
-                <ProtectedRoute exact path='/nodep/rentals/manage' component={RentalManage} />
-                <ProtectedRoute exact path='/nodep/bookings/manage' component={BookingManage} />
-                <ProtectedRoute exact path='/nodep/rentals/new' component={RentalCreate} />
-                <Route exact path='/nodep/rentals/:id' component={RentalDetail} />
-                <Route exact path='/nodep/rentals/:id/edit' component={RentalUpdate} />
-                <Route exact path='/nodep/login' component={Login} />
-                <LoggedInRoute exact path='/nodep/register' component={Register} />
+                <Route exact path='/' render={() =>  <Redirect to='/rentals' /> }/>
+                <Route exact path='/rentals' component={RentalListing} />
+                <Route exact path='/rentals/:city/homes' component={RentalSearchListing} />
+                <ProtectedRoute exact path='/rentals/manage' component={RentalManage} />
+                <ProtectedRoute exact path='/bookings/manage' component={BookingManage} />
+                <ProtectedRoute exact path='/rentals/new' component={RentalCreate} />
+                <Route exact path='/rentals/:id' component={RentalDetail} />
+                <Route exact path='/rentals/:id/edit' component={RentalUpdate} />
+                <Route exact path='/login' component={Login} />
+                <LoggedInRoute exact path='/register' component={Register} />
               </Switch>
             </div>
           </div>

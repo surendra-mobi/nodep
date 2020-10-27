@@ -6,11 +6,10 @@
     "npm": "5.6.0"
   },
   "homepage": "/nodep/",
-
   "private": true,
   "proxy": {
     "api/v1/*": {
-      "target": "http://localhost:3001/nodep"
+      "target": "http://localhost:3001"
     }
   },
   "dependencies": {
