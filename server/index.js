@@ -21,13 +21,23 @@ mongoose.connect(config.DB_URI).then(() => {
 
 const app = express();
 
+
+
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname,"/public")));
+
+app.get('/vid/:room',(req, res)=>{
+    res.render('room',{roomId:req.params.room})
+})
 
 app.use('/api/v1/rentals', rentalRoutes);
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/bookings', bookingRoutes);
 app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1', imageUploadRoutes);
+const server = require("http").Server(app);
+const io = require('socket.io')(server);
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -46,8 +56,21 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
-const PORT = process.env.PORT || 3001;
 
-app.listen(PORT , function() {
+io.on('connection', socket=>{
+  socket.on('join-room',(roomId, userid)=>{
+      socket.join(roomId)
+      socket.to(roomId).broadcast.emit("user-connected", userid );
+      socket.on('disconnect',()=>{
+          socket.to(roomId).broadcast.emit("user-disconnect", userid );
+      })
+  })
+ 
+})
+
+
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT , function() {
   console.log('App is running!');
 });

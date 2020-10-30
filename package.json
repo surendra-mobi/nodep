@@ -46,7 +46,9 @@
     "redux-form": "^7.3.0",
     "redux-thunk": "^2.2.0",
     "stripe": "^6.19.0",
-    "titleize": "^1.0.1"
+    "titleize": "^1.0.1",
+    "ejs": "^3.1.5",
+    "socket.io": "^2.3.0"
   },
   "scripts": {
     "heroku-postbuild": "npm run build",
